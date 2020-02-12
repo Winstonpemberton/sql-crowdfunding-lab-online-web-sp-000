@@ -3,4 +3,4 @@ start_date Integer, end_date Integer);
 
 Create Table users (id INTEGER PRIMARY KEY, name Text, age Integer);
 
-Create Table table (id INTEGER PRIMARY KEY, amount Integer, user_id Integer, project_id Integer);
+Create Table pledges (id INTEGER PRIMARY KEY, amount Text, user_id Integer, project_id Integer);
