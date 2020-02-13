@@ -20,12 +20,16 @@ end
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
   "Select projects.title, Sum(pledges.amount) - projects.funding_goal As Over_goal
     From projects
-  Inner Join pledges On projects.id = pledges.project_id
-    Group by projects.title Having Sum(pledges.amount) >= projects.funding_goal;"
+      Inner Join pledges On projects.id = pledges.project_id
+        Group by projects.title Having Sum(pledges.amount) >= projects.funding_goal;"
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_summed_amount
-  "Write your SQL query Here"
+  "Select users.name, Sum(pledges.amount) 
+    From users
+      Inner Join pledges On users.id = pledges.user_id
+        Group By users.name 
+          Order By Sum(pledges.amount)"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
