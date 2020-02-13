@@ -32,13 +32,18 @@ end
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_summed_amount
   "Select users.name, Sum(pledges.amount)
     From users
-      Inner Join pledges On users.id = pledges.user_id
-        Group By users.name
-          Order By Sum(pledges.amount)"
+      Inner Join pledges 
+        On users.id = pledges.user_id
+          Group By users.name
+            Order By Sum(pledges.amount)"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-  "Write your SQL query Here"
+  "Select projects.category, Sum(pledges.amount)
+    From projects
+      Inner Join pledges
+        On projects.id = pledges.project_id
+          Where category = "music""
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
